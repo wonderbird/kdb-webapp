@@ -1,6 +1,15 @@
 <template>
-  <div class="home">
-    <h1>Kommt die Bahn?</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col headline">
+          <img class="align-middle" src="../assets/32x32/status/appointment-soon.png" />&nbsp;
+          <h1 class="align-middle">Kommt die Bahn?</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">Deine Position:</div>
+      <div class="col-10">52.5090388, 13.3885079</div>
+    </div>
   </div>
 </template>
 
@@ -15,18 +24,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+.headline>* {
+  white-space: nowrap;
   display: inline-block;
-  margin: 0 10px;
 }
-a {
-  color: #42b983;
+
+.headline>h1.align-middle {
+  margin: 0;
 }
+
 </style>

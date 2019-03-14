@@ -1,5 +1,14 @@
 <template>
   <div id="app">
+    <header>
+      <nav class="nav nav-tabs">
+          <a class="nav-item nav-link active" href="#">
+            <img src="./assets/16x16/status/appointment-soon.png" alt="Logo" /> Home
+          </a>
+          <a class="nav-item nav-link" href="#">Settings</a>
+          <a class="nav-item nav-link" href="#">About</a>
+      </nav>
+    </header>
     <main>
       <HomePage />
     </main>
@@ -18,20 +27,4 @@ export default {
 </script>
 
 <style>
-body {
-  background: linear-gradient(to bottom, lightblue, white);
-  background-attachment: fixed;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-}
-
-main {
-  margin: 0 auto;
-  padding: 30px;
-  background-color: white;
-  width: 1024px;
-  min-height: 300px;
-}
 </style>
