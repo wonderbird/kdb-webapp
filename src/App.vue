@@ -10,19 +10,19 @@
       </nav>
     </header>
     <main>
-      <TrackLog />
+      <ConnectionOverview />
     </main>
   </div>
 </template>
 
 <script>
 // import HomePage from './home/HomePage.vue';
-import TrackLog from './connection/TrackLog.vue';
+import ConnectionOverview from './connection/ConnectionOverview.vue';
 
 export default {
   name: 'app',
   components: {
-    TrackLog,
+    ConnectionOverview,
   },
 };
 </script>
