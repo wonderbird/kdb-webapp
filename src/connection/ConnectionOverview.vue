@@ -48,8 +48,15 @@
 </template>
 
 <script>
+import connections from '../data/connection-overview';
+
 export default {
   name: 'ConnectionOverview',
+  data() {
+    return {
+      connections,
+    };
+  },
 };
 </script>
 
