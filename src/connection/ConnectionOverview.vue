@@ -4,33 +4,34 @@
       <div class="col title">Diese Verbindung wird beobachtet</div>
     </div>
     <div class="row">
-      <div class="col-1">07:09</div>
-      <div class="col-1 text-success">(07:09)</div>
-      <div class="col-1 text-success">(0)</div>
-      <div class="col-8">Rösrath-Stümpen</div>
+      <div class="col-1">{{ connections[0].scheduledDeparture }}</div>
+      <div class="col-1 text-success">{{ connections[0].expectedDeparture }}</div>
+      <div class="col-1 text-success">{{ connections[0].expectedDepartureDelay }}</div>
+      <div class="col-8">{{ connections[0].origin }}</div>
       <div class="col-1"><button id="edit">📝</button></div>
     </div>
     <div class="row">
-      <div class="col-1">07:30</div>
-      <div class="col-1 text-success">(07:30)</div>
-      <div class="col-1 text-success">(0)</div>
+      <div class="col-1">{{ connections[0].scheduledArrival }}</div>
+      <div class="col-1 text-success">{{ connections[0].expectedArrival }}</div>
+      <div class="col-1 text-success">{{ connections[0].expectedArrivalDelay }}</div>
       <div class="col-8">Overath</div>
       <div class="col-1"><button id="delete">🗑️</button></div>
     </div>
     <div class="row">
-      <div class="col-1">07:19</div>
-      <div class="col-1 text-danger">(07:26)</div>
-      <div class="col-1 text-danger">(+7)</div>
-      <div class="col-8">Rösrath-Stümpen</div>
+      <div class="col-1">{{ connections[1].scheduledDeparture }}</div>
+      <div class="col-1 text-danger">{{ connections[1].expectedDeparture }}</div>
+      <div class="col-1 text-danger">{{ connections[1].expectedDepartureDelay }}</div>
+      <div class="col-8">{{ connections[1].origin }}</div>
       <div class="col-1"><button id="edit">📝</button></div>
     </div>
     <div class="row">
-      <div class="col-1">07:29</div>
-      <div class="col-1 text-danger">(07:36)</div>
-      <div class="col-1 text-danger">(+7)</div>
-      <div class="col-8">Köln Trimbornstraße</div>
+      <div class="col-1">{{ connections[1].scheduledArrival }}</div>
+      <div class="col-1 text-danger">{{ connections[1].expectedArrival }}</div>
+      <div class="col-1 text-danger">{{ connections[1].expectedArrivalDelay }}</div>
+      <div class="col-8">Overath</div>
       <div class="col-1"><button id="delete">🗑️</button></div>
-    </div>    <div class="row">
+    </div>
+    <div class="row">
       <div class="col-1"><button id="add-connection">+</button></div>
       <div class="col-1"><button id="edit-sequence">↕️</button></div>
       <div class="col-1"></div>
