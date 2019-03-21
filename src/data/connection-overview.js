@@ -3,25 +3,21 @@ const connections = [
     origin: 'Rösrath-Stümpen',
     destination: 'Overath',
 
-    scheduledDeparture: '07:09',
-    expectedDeparture: '07:09',
-    expectedDepartureDelay: 0,
+    scheduledDeparture: new Date('2019-02-01T06:09:00.000Z'),
+    expectedDeparture: new Date('2019-02-01T06:09:00.000Z'),
 
-    scheduledArrival: '07:29',
-    expectedArrival: '07:29',
-    expectedArrivalDelay: 0,
+    scheduledArrival: new Date('2019-02-01T06:29:00.000Z'),
+    expectedArrival: new Date('2019-02-01T06:29:00.000Z'),
   },
   {
     origin: 'Rösrath-Stümpen',
     destination: 'Köln Trimbornstraße',
 
-    scheduledDeparture: '07:19',
-    expectedDeparture: '07:26',
-    expectedDepartureDelay: 7,
+    scheduledDeparture: new Date('2019-02-01T06:19:00.000Z'),
+    expectedDeparture: new Date('2019-02-01T06:26:00.000Z'),
 
-    scheduledArrival: '07:30',
-    expectedArrival: '07:37',
-    expectedArrivalDelay: 7,
+    scheduledArrival: new Date('2019-02-01T06:30:00.000Z'),
+    expectedArrival: new Date('2019-02-01T06:38:00.000Z'),
   },
 ];
 
