@@ -1,50 +1,37 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col title">Diese Verbindung wird beobachtet</div>
+      <div class="col title">Diese
+        <span v-if="connections.length > 1">Verbindungen werden</span>
+        <span v-else>Verbindung wird</span>
+        beobachtet</div>
     </div>
-    <div class="row">
-      <div class="col-2">{{ connections[0].scheduledDeparture | moment("HH:mm") }}</div>
-      <div class="col-2 text-success">{{ connections[0].expectedDeparture | moment("HH:mm") }}</div>
-      <div class="col-1 text-success">
-        <span v-show="expectedDepartureDelays[0] > 0.0">+</span>
-        <span v-show="expectedDepartureDelays[0] < 0.0">-</span>
-        {{ expectedDepartureDelays[0] }}
+    <div class="row" v-for="(connection,index) in connections" :key="index">
+      <div class="col-2">{{ connection.scheduledDeparture | moment("HH:mm") }}</div>
+      <div class="col-2">{{ connection.expectedDeparture | moment("HH:mm") }}</div>
+      <div class="col-1">
+        <span v-if="connection.expectedDepartureDelayMinutes > 0.0">
+          +{{ connection.expectedDepartureDelayMinutes }}
+        </span>
+        <span v-else-if="connection.expectedDepartureDelayMinutes < 0.0">
+          -{{ connection.expectedDepartureDelayMinutes }}
+        </span>
+        <span v-else>{{ connection.expectedDepartureDelayMinutes }}</span>
       </div>
-      <div class="col-5">{{ connections[0].origin }}</div>
+      <div class="col-5">{{ connection.origin }}</div>
       <div class="col-2"><button id="edit">📝</button></div>
-    </div>
-    <div class="row">
-      <div class="col-2">{{ connections[0].scheduledArrival | moment("HH:mm") }}</div>
-      <div class="col-2 text-success">{{ connections[0].expectedArrival | moment("HH:mm") }}</div>
-      <div class="col-1 text-success">
-        <span v-show="expectedArrivalDelays[0] > 0.0">+</span>
-        <span v-show="expectedArrivalDelays[0] < 0.0">-</span>
-        {{ expectedArrivalDelays[0] }}
+      <div class="col-2">{{ connection.scheduledArrival | moment("HH:mm") }}</div>
+      <div class="col-2">{{ connection.expectedArrival | moment("HH:mm") }}</div>
+      <div class="col-1">
+        <span v-if="connection.expectedArrivalDelayMinutes > 0.0">
+          +{{ connection.expectedArrivalDelayMinutes }}
+        </span>
+        <span v-else-if="connection.expectedArrivalDelayMinutes < 0.0">
+          -{{ connection.expectedArrivalDelayMinutes }}
+        </span>
+        <span v-else>{{ connection.expectedArrivalDelayMinutes }}</span>
       </div>
-      <div class="col-5">Overath</div>
-      <div class="col-2"><button id="delete">🗑️</button></div>
-    </div>
-    <div class="row">
-      <div class="col-2">{{ connections[1].scheduledDeparture | moment("HH:mm") }}</div>
-      <div class="col-2 text-danger">{{ connections[1].expectedDeparture | moment("HH:mm") }}</div>
-      <div class="col-1 text-danger">
-        <span v-show="expectedDepartureDelays[1] > 0.0">+</span>
-        <span v-show="expectedDepartureDelays[1] < 0.0">-</span>
-        {{ expectedDepartureDelays[1] }}
-      </div>
-      <div class="col-5">{{ connections[1].origin }}</div>
-      <div class="col-2"><button id="edit">📝</button></div>
-    </div>
-    <div class="row">
-      <div class="col-2">{{ connections[1].scheduledArrival | moment("HH:mm") }}</div>
-      <div class="col-2 text-danger">{{ connections[1].expectedArrival | moment("HH:mm") }}</div>
-      <div class="col-1 text-danger">
-        <span v-show="expectedArrivalDelays[1] > 0.0">+</span>
-        <span v-show="expectedArrivalDelays[1] < 0.0">-</span>
-        {{ expectedArrivalDelays[1] }}
-      </div>
-      <div class="col-5">Overath</div>
+      <div class="col-5">{{ connection.destination }}</div>
       <div class="col-2"><button id="delete">🗑️</button></div>
     </div>
     <div class="row">
@@ -72,25 +59,7 @@ export default {
   data() {
     return {
       connections,
-      convertMillisToMinutes(millis) {
-        const minutes = Math.round(millis / 1000.0 / 60.0);
-        return minutes;
-      },
     };
-  },
-  computed: {
-    expectedArrivalDelays() {
-      const delaysMinutes = connections.map(
-        x => this.convertMillisToMinutes(x.expectedArrival - x.scheduledArrival),
-      );
-      return delaysMinutes;
-    },
-    expectedDepartureDelays() {
-      const delaysMinutes = connections.map(
-        x => this.convertMillisToMinutes(x.expectedDeparture - x.scheduledDeparture),
-      );
-      return delaysMinutes;
-    },
   },
 };
 </script>
