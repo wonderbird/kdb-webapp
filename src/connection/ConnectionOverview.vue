@@ -8,28 +8,18 @@
     </div>
     <div class="row" v-for="(connection,index) in connections" :key="index">
       <div class="col-2">{{ connection.scheduledDeparture | moment("HH:mm") }}</div>
-      <div class="col-2">{{ connection.expectedDeparture | moment("HH:mm") }}</div>
-      <div class="col-1">
-        <span v-if="connection.expectedDepartureDelayMinutes > 0.0">
-          +{{ connection.expectedDepartureDelayMinutes }}
-        </span>
-        <span v-else-if="connection.expectedDepartureDelayMinutes < 0.0">
-          -{{ connection.expectedDepartureDelayMinutes }}
-        </span>
-        <span v-else>{{ connection.expectedDepartureDelayMinutes }}</span>
+      <div :class="[delayIndicatorClass(connection.expectedDepartureDelayMinutes), 'col-2']">
+        {{ connection.expectedDeparture | moment("HH:mm") }}</div>
+      <div :class="[delayIndicatorClass(connection.expectedDepartureDelayMinutes), 'col-1']">
+        {{ delayToString(connection.expectedDepartureDelayMinutes) }}
       </div>
       <div class="col-5">{{ connection.origin }}</div>
       <div class="col-2"><button id="edit">📝</button></div>
       <div class="col-2">{{ connection.scheduledArrival | moment("HH:mm") }}</div>
-      <div class="col-2">{{ connection.expectedArrival | moment("HH:mm") }}</div>
-      <div class="col-1">
-        <span v-if="connection.expectedArrivalDelayMinutes > 0.0">
-          +{{ connection.expectedArrivalDelayMinutes }}
-        </span>
-        <span v-else-if="connection.expectedArrivalDelayMinutes < 0.0">
-          -{{ connection.expectedArrivalDelayMinutes }}
-        </span>
-        <span v-else>{{ connection.expectedArrivalDelayMinutes }}</span>
+      <div :class="[delayIndicatorClass(connection.expectedArrivalDelayMinutes), 'col-2']">
+        {{ connection.expectedArrival | moment("HH:mm") }}</div>
+      <div :class="[delayIndicatorClass(connection.expectedDepartureDelayMinutes), 'col-1']">
+        {{ delayToString(connection.expectedArrivalDelayMinutes) }}
       </div>
       <div class="col-5">{{ connection.destination }}</div>
       <div class="col-2"><button id="delete">🗑️</button></div>
@@ -60,6 +50,14 @@ export default {
     return {
       connections,
     };
+  },
+  methods: {
+    delayIndicatorClass(delayMinutes) {
+      return delayMinutes > 0 ? 'text-danger' : 'text-success';
+    },
+    delayToString(delayMinutes) {
+      return delayMinutes > 0 ? '+' + delayMinutes : '0';
+    },
   },
 };
 </script>
