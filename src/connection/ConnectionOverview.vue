@@ -7,9 +7,9 @@
         beobachtet</div>
     </div>
     <div class="row" v-for="(connection,index) in connections" :key="index">
-      <TimeTableRow :record="connection.origin" />
+      <TimeTableRow :waypoint="connection.origin" />
       <div class="col-2"><button id="edit">📝</button></div>
-      <TimeTableRow :record="connection.destination" />
+      <TimeTableRow :waypoint="connection.destination" />
       <div class="col-2"><button id="delete">🗑️</button></div>
     </div>
     <div class="row">
