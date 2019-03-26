@@ -7,21 +7,21 @@
         beobachtet</div>
     </div>
     <div class="row" v-for="(connection,index) in connections" :key="index">
-      <div class="col-2">{{ connection.scheduledDeparture | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.expectedDepartureDelayMinutes), 'col-2']">
-        {{ connection.expectedDeparture | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.expectedDepartureDelayMinutes), 'col-1']">
-        {{ delayToString(connection.expectedDepartureDelayMinutes) }}
+      <div class="col-2">{{ connection.origin.scheduledTime | moment("HH:mm") }}</div>
+      <div :class="[delayIndicatorClass(connection.origin.delayMinutes), 'col-2']">
+        {{ connection.origin.expectedTime | moment("HH:mm") }}</div>
+      <div :class="[delayIndicatorClass(connection.origin.delayMinutes), 'col-1']">
+        {{ delayToString(connection.origin.delayMinutes) }}
       </div>
-      <div class="col-5">{{ connection.origin }}</div>
+      <div class="col-5">{{ connection.origin.station }}</div>
       <div class="col-2"><button id="edit">📝</button></div>
-      <div class="col-2">{{ connection.scheduledArrival | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.expectedArrivalDelayMinutes), 'col-2']">
-        {{ connection.expectedArrival | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.expectedDepartureDelayMinutes), 'col-1']">
-        {{ delayToString(connection.expectedArrivalDelayMinutes) }}
+      <div class="col-2">{{ connection.destination.scheduledTime | moment("HH:mm") }}</div>
+      <div :class="[delayIndicatorClass(connection.destination.delayMinutes), 'col-2']">
+        {{ connection.destination.expectedTime | moment("HH:mm") }}</div>
+      <div :class="[delayIndicatorClass(connection.origin.delayMinutes), 'col-1']">
+        {{ delayToString(connection.destination.delayMinutes) }}
       </div>
-      <div class="col-5">{{ connection.destination }}</div>
+      <div class="col-5">{{ connection.destination.station }}</div>
       <div class="col-2"><button id="delete">🗑️</button></div>
     </div>
     <div class="row">
