@@ -7,21 +7,9 @@
         beobachtet</div>
     </div>
     <div class="row" v-for="(connection,index) in connections" :key="index">
-      <div class="col-2">{{ connection.origin.scheduledTime | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.origin.delayMinutes), 'col-2']">
-        {{ connection.origin.expectedTime | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.origin.delayMinutes), 'col-1']">
-        {{ delayToString(connection.origin.delayMinutes) }}
-      </div>
-      <div class="col-5">{{ connection.origin.station }}</div>
+      <TimeTableRow :record="connection.origin" />
       <div class="col-2"><button id="edit">📝</button></div>
-      <div class="col-2">{{ connection.destination.scheduledTime | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.destination.delayMinutes), 'col-2']">
-        {{ connection.destination.expectedTime | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(connection.origin.delayMinutes), 'col-1']">
-        {{ delayToString(connection.destination.delayMinutes) }}
-      </div>
-      <div class="col-5">{{ connection.destination.station }}</div>
+      <TimeTableRow :record="connection.destination" />
       <div class="col-2"><button id="delete">🗑️</button></div>
     </div>
     <div class="row">
@@ -43,21 +31,15 @@
 
 <script>
 import connections from '../data/connection-overview';
+import TimeTableRow from './TimeTableRow.vue';
 
 export default {
   name: 'ConnectionOverview',
+  components: { TimeTableRow },
   data() {
     return {
       connections,
     };
-  },
-  methods: {
-    delayIndicatorClass(delayMinutes) {
-      return delayMinutes > 0 ? 'text-danger' : 'text-success';
-    },
-    delayToString(delayMinutes) {
-      return delayMinutes > 0 ? '+' + delayMinutes : '0';
-    },
   },
 };
 </script>
@@ -70,12 +52,7 @@ export default {
 }
 
 /* Track log */
-.container>div.row:nth-child(2n+3) {
+.container>div.row:nth-child(2n) {
   margin-bottom: 20px;
-}
-
-/* Explanations */
-.container>div.row:nth-last-child(2) {
-  margin-bottom: 0;
 }
 </style>
