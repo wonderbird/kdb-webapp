@@ -1,31 +1,37 @@
 <template>
   <div id="app">
     <header>
-      <nav class="nav nav-tabs">
-          <a class="nav-item nav-link active" href="#">
-            <img src="./assets/16x16/status/appointment-soon.png" alt="Logo" /> Start
-          </a>
-          <a class="nav-item nav-link" href="#">Einstellungen</a>
-          <a class="nav-item nav-link" href="#">Hilfe</a>
+      <nav> <!-- nav wrapper for accessibility -->
+        <b-nav tabs>
+            <b-nav-item active :to="{name: 'Home'}">
+              <img src="./assets/16x16/status/appointment-soon.png" alt="Logo" /> Start
+            </b-nav-item>
+            <b-nav-item :to="{name: 'Connections'}">Verbindungen</b-nav-item>
+            <b-nav-item :to="{name: 'Info'}">Info</b-nav-item>
+        </b-nav>
       </nav>
     </header>
     <main>
-      <ConnectionOverview />
+      <router-view />
     </main>
   </div>
 </template>
 
 <script>
-// import HomePage from './home/HomePage.vue';
-import ConnectionOverview from './connection/ConnectionOverview.vue';
-
 export default {
   name: 'app',
-  components: {
-    ConnectionOverview,
-  },
 };
 </script>
 
 <style>
+h1 {
+  margin-top: 20px;
+  font-size: 4ex;
+  font-weight: bold;
+}
+h2 {
+  margin-top: 20px;
+  font-size: 2.5ex;
+  font-weight: bold;
+}
 </style>

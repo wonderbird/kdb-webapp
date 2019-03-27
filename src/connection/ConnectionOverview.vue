@@ -1,12 +1,16 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col title">Diese
-        <span v-if="connections.length > 1">Verbindungen werden</span>
-        <span v-else>Verbindung wird</span>
-        beobachtet</div>
+      <div class="col">
+        <h2>
+          Diese
+          <span v-if="connections.length > 1">Verbindungen werden</span>
+          <span v-else>Verbindung wird</span>
+          beobachtet
+        </h2>
+      </div>
     </div>
-    <div class="row" v-for="(connection,index) in connections" :key="index">
+    <div class="row timetable" v-for="(connection,index) in connections" :key="index">
       <TimeTableRow :waypoint="connection.origin" />
       <div class="col-2"><button id="edit">📝</button></div>
       <TimeTableRow :waypoint="connection.destination" />
@@ -18,7 +22,9 @@
       <div class="col-8"></div>
     </div>
     <div class="row">
-      <div class="col title">Erläuterungen</div>
+      <div class="col">
+        <h2>Erläuterungen</h2>
+      </div>
     </div>
     <div class="row">
       <div class="col">
@@ -45,14 +51,7 @@ export default {
 </script>
 
 <style>
-.title {
-  margin: 20px 0 10px 0;
-  font-size: 2.5ex;
-  font-weight: bold;
-}
-
-/* Track log */
-.container>div.row:nth-child(2n) {
+.timetable {
   margin-bottom: 20px;
 }
 </style>

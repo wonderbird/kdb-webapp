@@ -7,8 +7,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-2">Deine Position:</div>
-      <div class="col-10">52.5090388, 13.3885079</div>
+      <div class="col-3">Deine Position:</div>
+      <div class="col-9">52.5090388, 13.3885079</div>
     </div>
   </div>
 </template>
@@ -22,8 +22,10 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.headline {
+  margin: 20px 0;
+}
 .headline>* {
   white-space: nowrap;
   display: inline-block;
@@ -32,5 +34,4 @@ export default {
 .headline>h1.align-middle {
   margin: 0;
 }
-
 </style>
