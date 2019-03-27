@@ -6,7 +6,7 @@
             <b-nav-item active :to="{name: 'Home'}">
               <img src="./assets/16x16/status/appointment-soon.png" alt="Logo" /> Start
             </b-nav-item>
-            <b-nav-item :to="{name: 'Connections'}">Verbindungen</b-nav-item>
+            <b-nav-item :to="{name: 'ConnectionOverview'}">Verbindungen</b-nav-item>
             <b-nav-item :to="{name: 'Info'}">Info</b-nav-item>
         </b-nav>
       </nav>
