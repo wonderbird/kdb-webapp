@@ -12,18 +12,18 @@
     </div>
     <div class="row timetable" v-for="(connection,index) in connections" :key="index">
       <TimeTableRow :waypoint="connection.origin" />
-      <div class="col-2">
-        <b-btn variant="outline-dark" :to="{name: 'ConnectionEditor'}">
-          &#x1f4dd;
-        </b-btn>
-      </div>
       <TimeTableRow :waypoint="connection.destination" />
-      <div class="col-2"><button id="delete">🗑️</button></div>
+      <div class="col-12">
+        <b-button :to="{name: 'ConnectionEditor' }">Bearbeiten</b-button>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-2"><button id="add-connection">+</button></div>
-      <div class="col-2"><button id="edit-sequence">↕️</button></div>
-      <div class="col-8"></div>
+    <div class="row justify-content-center">
+      <div class="col-11 col-md-6">
+        <b-button-group vertical>
+          <b-button block id="add-connection">Weitere Verbindung hinzufügen</b-button>
+          <b-button block id="edit-sequence">Reihenfolge der Verbindungen ändern</b-button>
+        </b-button-group>
+      </div>
     </div>
     <div class="row">
       <div class="col">

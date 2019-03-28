@@ -1,14 +1,13 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col headline">
-          <img class="align-middle" src="../assets/32x32/status/appointment-soon.png" />&nbsp;
-          <h1 class="align-middle">Kommt die Bahn?</h1>
+      <div class="col">
+        <h2>Deine Position</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-3">Deine Position:</div>
-      <div class="col-9">52.5090388, 13.3885079</div>
+      <div class="col-6">N 52.5090388</div>
+      <div class="col-6">E 13.3885079</div>
     </div>
   </div>
 </template>

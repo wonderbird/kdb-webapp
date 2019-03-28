@@ -1,5 +1,5 @@
 <template>
-<div class="col-10">
+<div class="col-12">
   <div class="row">
       <div class="col-2">{{ waypoint.scheduledTime | moment("HH:mm") }}</div>
       <div :class="[delayIndicatorClass(waypoint.delayMinutes), 'col-2']">
