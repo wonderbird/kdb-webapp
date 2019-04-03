@@ -1,13 +1,13 @@
 <template>
 <div class="col-12">
   <div class="row">
-      <div class="col-2">{{ waypoint.scheduledTime | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(waypoint.delayMinutes), 'col-2']">
+      <div class="col-2 col-md-1">{{ waypoint.scheduledTime | moment("HH:mm") }}</div>
+      <div :class="[delayIndicatorClass(waypoint.delayMinutes), 'col-2', 'col-md-1']">
         {{ waypoint.expectedTime | moment("HH:mm") }}</div>
-      <div :class="[delayIndicatorClass(waypoint.delayMinutes), 'col-2']">
+      <div :class="[delayIndicatorClass(waypoint.delayMinutes), 'col-2', 'col-md-1']">
         {{ delayToString(waypoint.delayMinutes) }}
       </div>
-      <div class="col-6">{{ waypoint.name }}</div>
+      <div class="col-6 col-md-9">{{ waypoint.name }}</div>
   </div>
 </div>
 </template>
@@ -37,3 +37,6 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>

@@ -27,13 +27,12 @@
       </div>
       <div class="form-row">
         <div class="col-8 col-md-10 text-right">
-          <button type="button" class="btn btn-light">Abbruch</button>
+          <b-button variant="light" :to="{name: 'ConnectionOverview'}">Abbruch</b-button>
         </div>
         <div class="col-4 col-md-2 text-right">
-          <!-- <button type="button" class="btn btn-primary">Speichern</button> -->
-          <b-btn variant="primary" :to="{name: 'ConnectionOverview'}">
+          <b-button variant="primary" :to="{name: 'ConnectionOverview'}">
             Speichern
-          </b-btn>
+          </b-button>
         </div>
       </div>
     </form>
