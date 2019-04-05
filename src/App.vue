@@ -24,8 +24,13 @@
 </template>
 
 <script>
+import connections from './data/connection-overview';
+
 export default {
   name: 'app',
+  created() {
+    this.$store.commit('addConnections', connections);
+  },
 };
 </script>
 

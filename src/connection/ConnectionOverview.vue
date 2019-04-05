@@ -21,7 +21,9 @@
     <div class="row justify-content-center">
       <div class="col-11 col-md-6">
         <b-button-group vertical>
-          <b-button variant="primary" :to="{name: 'ConnectionEditor'}">Weitere Verbindung hinzufügen</b-button>
+          <b-button variant="primary" :to="{name: 'ConnectionEditor'}">
+            Weitere Verbindung hinzufügen
+          </b-button>
           <b-button variant="light">Reihenfolge der Verbindungen ändern</b-button>
         </b-button-group>
       </div>
@@ -49,16 +51,15 @@
 </template>
 
 <script>
-import connections from '../data/connection-overview';
 import TimeTableRow from './TimeTableRow.vue';
 
 export default {
   name: 'ConnectionOverview',
   components: { TimeTableRow },
-  data() {
-    return {
-      connections,
-    };
+  computed: {
+    connections() {
+      return this.$store.state.connections;
+    },
   },
 };
 </script>
