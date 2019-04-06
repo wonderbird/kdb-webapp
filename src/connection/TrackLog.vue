@@ -4,22 +4,14 @@
       <div class="col title">Diese Verbindung wird beobachtet</div>
     </div>
     <div class="row">
-      <div class="col-2 col-md-1">07:19</div>
-      <div class="col-2 col-md-1 text-danger">(07:26)</div>
-      <div class="col-2 col-md-1 text-danger">(+7)</div>
-      <div class="col-6 col-md-9">Rösrath-Stümpen</div>
-    </div>
-    <div class="row">
-      <div class="col-2 col-md-1">07:29</div>
-      <div class="col-2 col-md-1 text-danger">(07:36)</div>
-      <div class="col-2 col-md-1 text-danger">(+7)</div>
-      <div class="col-3">Köln Trimbornstraße</div>
+      <TimeTableRow :waypoint="connection.origin" />
+      <TimeTableRow :waypoint="connection.destination" />
     </div>
     <div class="row justify-content-center">
       <div class="col-7 col-md-4">
         <b-button-group vertical>
           <b-button variant="light" :to="{name: 'ConnectionOverview'}">Zurück</b-button>
-          <b-button variant="danger" :to="{name: 'ConnectionOverview'}">Beobachten beenden</b-button>
+          <b-button variant="danger" @click="removeConnection">Beobachten beenden</b-button>
         </b-button-group>
       </div>
     </div>
@@ -118,8 +110,23 @@
 </template>
 
 <script>
+import TimeTableRow from './TimeTableRow.vue';
+
 export default {
   name: 'TrackLog',
+  components: { TimeTableRow },
+  props: {
+    connection: {
+      type: Object,
+      required: true,
+    },
+  },
+  methods: {
+    removeConnection() {
+      this.$store.commit('removeConnection');
+      this.$router.push({ name: 'ConnectionOverview' });
+    },
+  },
 };
 </script>
 

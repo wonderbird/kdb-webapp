@@ -12,7 +12,7 @@
     </div>
     <div
       class="row timetable"
-      @click="$router.push({name: 'TrackLog'})"
+      @click="$router.push({name: 'TrackLog', params: { connection: connection }})"
       v-for="(connection,index) in connections"
       :key="index">
       <TimeTableRow :waypoint="connection.origin" />

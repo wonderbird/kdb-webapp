@@ -26,6 +26,7 @@ export default new Router({
     path: '/connections/tracklog',
     name: 'TrackLog',
     component: TrackLog,
+    props: true,
   }, {
     path: '/connections/edit',
     name: 'ConnectionEditor',

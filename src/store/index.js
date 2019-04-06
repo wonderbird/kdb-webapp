@@ -9,8 +9,10 @@ export default new Vuex.Store({
   },
   mutations: {
     addConnections(state, connections) {
-      console.log(connections.length);
       state.connections.push(...connections);
+    },
+    removeConnection(state) {
+      state.connections.splice(0, 1);
     },
   },
 });
