@@ -8,6 +8,4 @@ To debug this Vue.js application, simply follow [Debugging in VS Code](https://v
 
 ## CI Pipeline
 
-We have selected the GitHub application [Google Cloud Build](https://github.com/apps/google-cloud-build) for running our Continuous Integration pipelines in Google's [Cloud Build](https://github.com/apps/google-cloud-build) environment.
-
-The containers built by GCP will be pushed to nearline storage (Europe) in order to save costs. Nearline storage is 0.01 EUR/month/GB whereas multiregional storage is 0.026 USD/month/GB.
+We have selected the GitHub application [Google Cloud Build](https://github.com/apps/google-cloud-build) for running our Continuous Integration pipelines in Google's [Cloud Build](https://github.com/apps/google-cloud-build) environment. The build is configured in [cloudbuild.yaml](./blob/master/cloudbuild.yaml).
