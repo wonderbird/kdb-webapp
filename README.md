@@ -4,7 +4,7 @@ Monitor the arrivals and departures of railway connections.
 
 ## Debugging
 
-To debug this Vue.js application, simply follow [Debugging in VS Code](https://vuejs.org/v2/cookbook/debugging-in-vscode.html). However, replace the `npm start` command with `npm run serve`.
+To debug this Vue.js application, simply follow [Debugging in VS Code](https://vuejs.org/v2/cookbook/debugging-in-vscode.html). Replace `npm start` with `npm run serve`.
 
 ## CI Pipeline
 
