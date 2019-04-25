@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: kommt-die-bahn-container
-        image: gcr.io/REPLACE_ME_PROJECT/kommt-die-bahn:latest
+        image: eu.gcr.io/REPLACE_ME_PROJECT/kommt-die-bahn:latest
         ports:
           - containerPort: 80
         livenessProbe:
