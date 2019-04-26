@@ -2,6 +2,17 @@
 
 Monitor the arrivals and departures of railway connections.
 
+## Running Locally
+
+To run this application on your local computer
+
+```bash
+npm install
+npm run serve
+```
+
+Then open the URL showed by `npm run serve`.
+
 ## Debugging
 
 To debug this Vue.js application, simply follow [Debugging in VS Code](https://vuejs.org/v2/cookbook/debugging-in-vscode.html). Replace `npm start` with `npm run serve`.
@@ -9,6 +20,14 @@ To debug this Vue.js application, simply follow [Debugging in VS Code](https://v
 ## CI Pipeline
 
 We have selected the GitHub application [Google Cloud Build](https://github.com/apps/google-cloud-build) for running our Continuous Integration pipelines in Google's [Cloud Build](https://github.com/apps/google-cloud-build) environment. The build is configured in [cloudbuild.yaml](./blob/master/cloudbuild.yaml).
+
+You can [send a build manually](https://cloud.google.com/cloud-build/docs/running-builds/start-build-manually) from your command line:
+
+```bash
+gcloud builds submit --config cloudbuild.yaml .
+```
+
+The resulting image will be pushed to your [Google Container Registry](https://console.cloud.google.com/projectselector2/gcr?organizationId=0&supportedpurview=project)
 
 ## Deployment to Production
 
