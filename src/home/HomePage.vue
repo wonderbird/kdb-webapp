@@ -6,8 +6,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6" data-testid="coord-n">N 52.5090388</div>
-      <div class="col-6" data-testid="coord-e">E 13.3885079</div>
+      <div class="col-6" data-testid="coord-n">N {{ coords.latitude.toFixed(7) }}</div>
+      <div class="col-6" data-testid="coord-e">E {{ '0' + coords.longitude.toFixed(7) }}</div>
     </div>
   </div>
 </template>
@@ -15,9 +15,14 @@
 <script>
 export default {
   name: 'HomePage',
-  props: {
-    msg: String,
-  },
+  data() {
+    return {
+      coords: {
+        latitude: 48,
+        longitude: 2,
+      }
+    }
+  }
 };
 </script>
 
