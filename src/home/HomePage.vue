@@ -6,15 +6,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6" data-testid="coord-n">N {{ coords.latitude.toFixed(7) }}</div>
-      <div class="col-6" data-testid="coord-e">E {{ '0' + coords.longitude.toFixed(7) }}</div>
+      <div class="col" data-testid="coord">{{ coords | gpsCoordinate }}</div>
     </div>
   </div>
 </template>
 
 <script>
+import gpsCoordinateFilter from '../shared/gps-coordinate-filter';
+
 export default {
   name: 'HomePage',
+  filters: { gpsCoordinate: gpsCoordinateFilter },
   data() {
     return {
       coords: {

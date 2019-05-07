@@ -15,16 +15,20 @@ describe('SCENARIO: Geolocation based features', () => {
         };
       }
 
-      it('AND the browser provides a geolocation\n'
-        + 'THEN the geolocation is shown.', () => {
-        cy.visit('/', fakeLocation(48, 2));
+      const tests = [
+        { coord: { lat: 48, long: 2 }, expected: 'N 48° 00.000\' E 002° 00.000\'' },
+        { coord: { lat: 51, long: 13.999999 }, expected: 'N 51° 00.000\' E 013° 57.333\'' }
+      ];
 
-        cy.get('[data-testid=coord-n]')
-          .should('be.visible')
-          .should('contain', 'N 48.0000000')
-          .get('[data-testid=coord-e]')
-          .should('be.visible')
-          .should('contain', 'E 02.0000000');
+      tests.forEach(function(test) {
+        it(`AND the browser provides the location ${test.coord.lat}, ${test.coord.long}
+          THEN the geolocation ${test.expected} is shown.`, () => {
+          cy.visit('/', fakeLocation(test.coord.lat, test.coord.long));
+
+          cy.get('[data-testid=coord]')
+            .should('be.visible')
+            .should('contain', test.expected)
+        });
       });
     });
   });
