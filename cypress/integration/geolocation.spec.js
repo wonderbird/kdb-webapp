@@ -1,20 +1,31 @@
-describe('SCENARIO: Geolocation based features', function () {
-  describe('GIVEN As traveller I am viewing the home page', function () {
-    describe('WHEN querying the geolocation is allowed in the browser', function () {
-      it('AND the browser provides a geolocation\n' +
-        'THEN the geolocation is shown.', function () {
-        cy.visit('/');
+describe('SCENARIO: Geolocation based features', () => {
+  describe('GIVEN As traveller I am viewing the home page', () => {
+    describe('WHEN querying the geolocation is allowed in the browser', () => {
+      // https://github.com/cypress-io/cypress/issues/2671
+      function fakeLocation(latitude, longitude) {
+        return {
+          onBeforeLoad(win) {
+            cy.stub(win.navigator.geolocation, 'getCurrentPosition', (cb, err) => {
+              if (latitude && longitude) {
+                return cb({ coords: { latitude, longitude } });
+              }
+              throw err({ code: 1 }); // 1: rejected, 2: unable, 3: timeout
+            });
+          },
+        };
+      }
 
-        expect('TODO: Find out how to enable geolocation tracking in the browser').to.be.false;
-        expect('TODO: Find out how to specify a fake geolocation to be provided by the browser').to.be.false;
+      it('AND the browser provides a geolocation\n'
+        + 'THEN the geolocation is shown.', () => {
+        cy.visit('/', fakeLocation(48, 2));
 
         cy.get('[data-testid=coord-n]')
           .should('be.visible')
-          .should('contain', 'N 52.5090388')
+          .should('contain', 'N 48.0000000')
           .get('[data-testid=coord-e]')
           .should('be.visible')
-          .should('contain', 'E 13.3885079')
-      })
-    })
-  })
+          .should('contain', 'E 02.0000000');
+      });
+    });
+  });
 });
