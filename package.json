@@ -5,10 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test": "npm run test:unit",
+    "e2e": "npx cypress run",
     "lint": "vue-cli-service lint",
     "cy:open": "npx cypress open",
-    "e2e": "npx cypress run",
-    "test": "echo Tests have not been configured yet."
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
@@ -27,7 +28,11 @@
     "vuex": "^3.1.0"
   },
   "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "^3.7.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "cypress": "^3.2.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
     "eslint-plugin-cypress": "^2.2.1"
