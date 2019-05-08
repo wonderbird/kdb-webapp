@@ -20,14 +20,14 @@ describe('SCENARIO: Geolocation based features', () => {
         { coord: { lat: 51, long: 13.999999 }, expected: 'N 51° 00.000\' E 013° 57.333\'' }
       ];
 
-      tests.forEach(function(test) {
+      tests.forEach((test) => {
         it(`AND the browser provides the location ${test.coord.lat}, ${test.coord.long}
           THEN the geolocation ${test.expected} is shown.`, () => {
           cy.visit('/', fakeLocation(test.coord.lat, test.coord.long));
 
           cy.get('[data-testid=coord]')
             .should('be.visible')
-            .should('contain', test.expected)
+            .should('contain', test.expected);
         });
       });
     });

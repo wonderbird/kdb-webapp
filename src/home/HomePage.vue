@@ -17,14 +17,16 @@ import gpsCoordinateFilter from '../shared/gps-coordinate-filter';
 export default {
   name: 'HomePage',
   filters: { gpsCoordinate: gpsCoordinateFilter },
-  data() {
-    return {
-      coords: {
-        latitude: 48,
-        longitude: 2,
-      }
-    }
-  }
+  computed: {
+    coords() {
+      const latitude = 48;
+      const longitude = 2;
+      return {
+        latitude,
+        longitude,
+      };
+    },
+  },
 };
 </script>
 
