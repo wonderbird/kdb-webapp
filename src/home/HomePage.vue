@@ -12,29 +12,23 @@
 </template>
 
 <script>
-import gpsCoordinateFilter from "../shared/gps-coordinate-filter";
+  import gpsCoordinateFilter from "../shared/gps-coordinate-filter";
 
-export default {
-  name: "HomePage",
-  filters: { gpsCoordinate: gpsCoordinateFilter },
-  computed: {
-    coords() {
-      let latitude = undefined;
-      let longitude = undefined;
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-          latitude = position.latitude;
-          longitude = position.longitude;
-        });
+  export default {
+    name: "HomePage",
+    filters: {gpsCoordinate: gpsCoordinateFilter},
+    computed: {
+      coords() {
+        let latitude = 42;
+        let longitude = 2;
+
+        return {
+          latitude,
+          longitude
+        };
       }
-
-      return {
-        latitude,
-        longitude
-      };
     }
-  }
-};
+  };
 </script>
 
 <style scoped>
