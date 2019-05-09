@@ -12,21 +12,28 @@
 </template>
 
 <script>
-import gpsCoordinateFilter from '../shared/gps-coordinate-filter';
+import gpsCoordinateFilter from "../shared/gps-coordinate-filter";
 
 export default {
-  name: 'HomePage',
+  name: "HomePage",
   filters: { gpsCoordinate: gpsCoordinateFilter },
   computed: {
     coords() {
-      const latitude = 48;
-      const longitude = 2;
+      let latitude = undefined;
+      let longitude = undefined;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          latitude = position.latitude;
+          longitude = position.longitude;
+        });
+      }
+
       return {
         latitude,
-        longitude,
+        longitude
       };
-    },
-  },
+    }
+  }
 };
 </script>
 
