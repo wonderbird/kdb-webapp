@@ -19,8 +19,8 @@
     filters: {gpsCoordinate: gpsCoordinateFilter},
     computed: {
       coords() {
-        let latitude = 42;
-        let longitude = 2;
+        let latitude = 52.509034;
+        let longitude = 13.390693;
 
         return {
           latitude,
