@@ -1,5 +1,5 @@
 {
-  "name": "kommt-die-bahn",
+  "name": "kdb-webapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,31 +13,33 @@
     "test:watch": "vue-cli-service test:unit --watch"
   },
   "dependencies": {
-    "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.7.0",
-    "@vue/eslint-config-airbnb": "^4.0.0",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.14",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "core-js": "^2.6.5",
     "jquery": "^3.4.1",
-    "vue": "^2.6.8",
+    "vue": "^2.6.10",
     "vue-moment": "^4.0.0",
-    "vue-router": "^3.0.2",
-    "vue-template-compiler": "^2.5.21",
-    "vuex": "^3.1.0"
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-unit-jest": "^3.9.0",
+    "@vue/cli-plugin-babel": "^3.10.0",
+    "@vue/cli-plugin-e2e-cypress": "^3.10.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-plugin-unit-jest": "^3.10.0",
+    "@vue/cli-service": "^3.10.0",
+    "@vue/eslint-config-airbnb": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.8.0",
-    "cypress": "^3.2.0",
+    "babel-jest": "^23.6.0",
+    "cypress": "^3.4.1",
+    "eslint": "^5.16.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
     "eslint-plugin-cypress": "^2.2.1",
-    "eslint-plugin-jest": "^22.5.1"
+    "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [
     "> 1%",
