@@ -1,5 +1,4 @@
 import filter from '@/shared/gps-coordinate-filter'
-import filter from '@/shared/gps-coordinate-filter'
 
 describe('gps-coordinate-filter', () => {
   it('(lat, lng) = (52.509034,13.390693)', () => {

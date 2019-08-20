@@ -1,5 +1,7 @@
 # Kommt die Bahn?
 
+[![Build Status](https://travis-ci.org/wonderbird/kdb-webapp.svg?branch=master)](https://travis-ci.org/wonderbird/kdb-webapp)
+
 Monitor the arrivals and departures of railway connections.
 
 ## Running Locally
