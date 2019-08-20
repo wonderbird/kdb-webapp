@@ -19,7 +19,13 @@ Then open the URL showed by `npm run serve`.
 
 To debug this Vue.js application, simply follow [Debugging in VS Code](https://vuejs.org/v2/cookbook/debugging-in-vscode.html). Replace `npm start` with `npm run serve`.
 
-## CI Pipeline
+## CI Pipelines
+
+### Travis CI
+
+On [Travis-CI.org](https://travis-ci.org/) we have configured a build job, which runs the unit tests and eslint every time a branch is pushed to GitHub. The build status badge on the top of this page shows the latest build result.
+
+### Google Cloud Build
 
 We have selected the GitHub application [Google Cloud Build](https://github.com/apps/google-cloud-build) for running our Continuous Integration pipelines in Google's [Cloud Build](https://github.com/apps/google-cloud-build) environment. The build is configured in [cloudbuild.yaml](./blob/master/cloudbuild.yaml).
 
@@ -29,30 +35,20 @@ You can [send a build manually](https://cloud.google.com/cloud-build/docs/runnin
 gcloud builds submit --config cloudbuild.yaml .
 ```
 
-The resulting image will be pushed to your [Google Container Registry](https://console.cloud.google.com/projectselector2/gcr?organizationId=0&supportedpurview=project)
+The resulting image will be pushed to your [Google Container Registry](https://console.cloud.google.com/projectselector2/gcr?organizationId=0&supportedpurview=project). You can run that image as follows:
 
-## Deployment to Production
+```bash
+docker run --name kdb-webapp -it --rm -p 8080:80 eu.gcr.io/stefans-projects/kommt-die-bahn
+```
 
-### Prerequisites
+## Building and Running the Docker Image Locally
 
-- You need a Google Compute Engine enabled [Google](https://www.google.com) account
-- For your account, a [Project](https://console.cloud.google.com/projectcreate) is required, which has the [Google Kubernetes Engine](https://console.cloud.google.com/projectselector2/kubernetes/list?folder=true&organizationId=0&supportedpurview=project) enabled
-- Install and initialize the [Google Cloud SDK (gcloud)](https://cloud.google.com/sdk/docs/#install_the_latest_cloud_tools_version_cloudsdk_current_version).
+Usually this application is deployed as a docker container. You can reproduce result of the [Google Cloud Build](https://github.com/apps/google-cloud-build) job on your local machine and run the container using the following commands:
 
-### Deployment
+```bash
+docker build -t kdb-webapp .
+...
+docker run --name kdb-webapp -it --rm -p 8080:80 kdb-webapp
+```
 
-1. If not already running, create a Kubernetes cluster by invoking `deployment/cluster-create.sh`
-
-2. Install a pod running the latest docker image of kommt-die-bahn by calling `deployment/install.sh -p <project-id> -r <region> -z <zone>`. You can change the defaults to your needs in `deployment/functions.sh:init_gcloud()`.
-
-3. Get the IP adress of the kommt-die-bahn application either from the [Google Kubernetes Engine / Services Pane](https://console.cloud.google.com/projectselector2/kubernetes/discovery?organizationId=0&supportedpurview=project) or by calling `kubectl --namespace kommt-die-bahn get services kommt-die-bahn-service`.
-
-### Cleanup
-
-In order to save costs you can completely shutdown the running containers and the Kubernetes cluster:
-
-1. Shutdown the kommt-die-bahn containers: `deplyoment/uninstall.sh`
-
-2. Shutdown the Kubernetes cluster: `deployment/cluster-delete.sh`
-
-3. Wait some 3 minutes, then delete remaining external load balancers using the [Google Network Services / Load Balancing Panel](https://console.cloud.google.com/projectselector2/net-services/loadbalancing/loadBalancers/list?organizationId=0&supportedpurview=project)
+Then you can open the application on http://localhost:8080 .
