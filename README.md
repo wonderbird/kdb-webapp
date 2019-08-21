@@ -1,7 +1,7 @@
 # Kommt die Bahn?
 
 [![Travis Build Status](https://travis-ci.org/wonderbird/kdb-webapp.svg?branch=master)](https://travis-ci.org/wonderbird/kdb-webapp)
-[![Cloud Build Status](https://storage.googleapis.com/stefans-projects-infrastructure/build/status-kdb-webapp.svg)](https://github.com/sbsends/cloud-build-badge)
+[![Cloud Build Status](https://storage.googleapis.com/stefans-projects-infrastructure/build/status-kdb-webapp.svg)](https://console.cloud.google.com/cloud-build/builds?project=stefans-projects)
 
 Monitor the arrivals and departures of railway connections.
 
