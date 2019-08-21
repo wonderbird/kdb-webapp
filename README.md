@@ -1,6 +1,7 @@
 # Kommt die Bahn?
 
-[![Build Status](https://travis-ci.org/wonderbird/kdb-webapp.svg?branch=master)](https://travis-ci.org/wonderbird/kdb-webapp)
+[![Travis Build Status](https://travis-ci.org/wonderbird/kdb-webapp.svg?branch=master)](https://travis-ci.org/wonderbird/kdb-webapp)
+[![Cloud Build Status](https://storage.googleapis.com/stefans-projects-infrastructure/build/status-kdb-webapp.svg)](https://github.com/sbsends/cloud-build-badge)
 
 Monitor the arrivals and departures of railway connections.
 
@@ -41,6 +42,8 @@ The resulting image will be pushed to your [Google Container Registry](https://c
 docker run --name kdb-webapp -it --rm -p 8080:80 eu.gcr.io/stefans-projects/kommt-die-bahn
 ```
 
+The status of the Cloud Build is reflected by the "cloud build" badge on the top of this README. For instructions on how to create this badge, refer to <a href="#bib-1">[1]</a> and <a href="#bib-2">[2]</a>.
+
 ## Building and Running the Docker Image Locally
 
 Usually this application is deployed as a docker container. You can reproduce result of the [Google Cloud Build](https://github.com/apps/google-cloud-build) job on your local machine and run the container using the following commands:
@@ -52,3 +55,9 @@ docker run --name kdb-webapp -it --rm -p 8080:80 kdb-webapp
 ```
 
 Then you can open the application on http://localhost:8080 .
+
+## References
+
+<span id="bib-1" name="bib-1">[1] Lj Miranda: [Add badges to your Google Cloud Builds](https://ljvmiranda921.github.io/notebook/2018/12/21/cloud-build-badge/), last visited on Aug. 20, 2019.</span>
+
+<span id="bib-1" name="bib-1">[2] Samuel B. Sendelbach: [cloud-build-badge project on GitHub](https://github.com/sbsends/cloud-build-badge), last visited on Aug. 20, 2019.<span>
