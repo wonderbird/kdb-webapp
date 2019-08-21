@@ -25,7 +25,8 @@
     "vue": "^2.6.10",
     "vue-moment": "^4.0.0",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vue-template-compiler": "^2.6.10",
   },
   "devDependencies": {
     "@vue/eslint-config-airbnb": "^4.0.0",
@@ -39,7 +40,6 @@
     "eslint-plugin-cypress": "^2.2.1",
     "eslint-plugin-jest": "^22.5.1",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [
     "> 1%",
