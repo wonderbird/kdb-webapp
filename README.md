@@ -60,4 +60,4 @@ Then you can open the application on http://localhost:8080 .
 
 <span id="bib-1" name="bib-1">[1] Lj Miranda: [Add badges to your Google Cloud Builds](https://ljvmiranda921.github.io/notebook/2018/12/21/cloud-build-badge/), last visited on Aug. 20, 2019.</span>
 
-<span id="bib-1" name="bib-1">[2] Samuel B. Sendelbach: [cloud-build-badge project on GitHub](https://github.com/sbsends/cloud-build-badge), last visited on Aug. 20, 2019.<span>
+<span id="bib-2" name="bib-2">[2] Samuel B. Sendelbach: [cloud-build-badge project on GitHub](https://github.com/sbsends/cloud-build-badge), last visited on Aug. 20, 2019.<span>
