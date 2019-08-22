@@ -3,9 +3,9 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --only=production
+RUN npm install --progress=false --only=production
 COPY . .
-RUN npm run build
+RUN npm run build --mode=production
 
 # production stage
 FROM nginx:stable-alpine as production-stage
