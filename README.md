@@ -7,7 +7,7 @@ Monitor the arrivals and departures of railway connections.
 
 ## Running Locally
 
-To run this application on your local computer:
+To run this application on your local computer
 
 ```bash
 npm install
